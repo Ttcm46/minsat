@@ -1,7 +1,8 @@
 # Minsat
-*Minsat* is a simple console application that aims to simplify the process of making SAT(Mexico) tax declarations, it doesnt do the pprocess for you, but it simplifies it.
+*Minsat* is a simple console application that aims to simplify the process of making SAT(Mexico) tax declarations, it doesnt do the process for you, but it simplifies it.
 
-*Minsat* ***DOES NOT*** replace an accountant or claims to do yoyr taxes, its just a tool meant to make the proccess easier.
+*Minsat* ***DOES NOT*** replace an accountant or claims to do your taxes, its just a tool meant to make the proccess easier.
+I/we fully encourage you to do your taxes on time and in an orderly manner so as to not get in trouble.
 
 ## Using minsat
 As of right now the functionality is quite limited.
