@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.Json;
 
 namespace minsat.Primitives
 {
@@ -30,6 +31,17 @@ namespace minsat.Primitives
 
 
         }
+
+        public string Serialize()
+        {
+
+            if (List_Facturas == null)
+            {
+                return null;
+            }
+            return JsonSerializer.Serialize(List_Facturas);
+        }
+
     }
 
 

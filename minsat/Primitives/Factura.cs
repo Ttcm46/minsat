@@ -14,6 +14,7 @@ namespace minsat.Primitives
         public double Total = -1;
         public string concepto = null;
         public string fecha = null;
+        public string CFDI = null;
 
 
         public string toString()
