@@ -11,19 +11,19 @@ But *Minsat* offers the following:
 
 The use of Minsat is quite simple as its made as a console application for all platforms.
 To call *Minsat* and its functionalities:
-```
+```bash
 minsat [options]
 ```
 ### Summary of reciepts
 
 You can either just call *Minsat* in the directory and it will summarize the xml SAT reciepts in it.
-```
+```bash
 minsat
 ```
 Or you can specify the path of the directory.
 **NOTE:** This is most likely to changhe in the future so as to make a more conscise, ordered and expanded command options repertoire
-```
-minsat [PATH to directory]
+```bash
+minsat summarize [options]
 ```
 
 ## Future plans
@@ -31,3 +31,11 @@ In the future I/we(hopefully) plan to add the following:
 - ability to export the summaries to JSON, excel, xml
 - more detailed summaries
 - Full year summaries
+
+```mermaid
+   graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
+```
