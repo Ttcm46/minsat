@@ -2,7 +2,7 @@
   "profiles": {
     "minsat": {
       "commandName": "Project",
-      "commandLineArgs": "summarize",
+      "commandLineArgs": "summarize -e",
       "workingDirectory": "C:\\Users\\ttc46\\OneDrive\\Documentos\\Pablo\\MX\\SAT\\Declaraciones\\2024\\08\\facturas"
     }
   }

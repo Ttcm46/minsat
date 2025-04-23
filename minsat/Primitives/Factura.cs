@@ -15,6 +15,7 @@ namespace minsat.Primitives
         public string concepto = null;
         public string fecha = null;
         public string CFDI = null;
+        public string emisor = null;
 
 
         public string toString()
@@ -26,5 +27,10 @@ namespace minsat.Primitives
         {
             table.AddRow(new string[]{ fecha, concepto, SubTotal.ToString(), Total.ToString()});
         }
+        public void trim()
+        {
+            this.concepto=this.concepto.Trim(',');
+        }
     }
+    
 }

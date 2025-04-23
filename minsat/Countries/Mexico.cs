@@ -3,6 +3,7 @@ using Spectre.Console;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
@@ -37,11 +38,12 @@ namespace minsat.Countries
 
             for (int i = 0; i < Files.Length; i++)
             {
+                int x = 0;
                 FileInfo f = Files[i];
                 doc.Load(f.DirectoryName + '/' + f.Name);
                 doc.Load(f.DirectoryName + '/' + f.Name);
                 int node_num = 0;
-                XmlNode node = doc.ChildNodes[node_num];           // second child
+                XmlNode node = doc.ChildNodes[node_num]; 
                 while (node.Name != "cfdi:Comprobante")
                 {
                     node_num += 1;
@@ -50,11 +52,22 @@ namespace minsat.Countries
                 }
 
 
+
                 Factura elem = new Factura();
                 elem.SubTotal = double.Parse(node.Attributes["SubTotal"]?.InnerText);
                 elem.Total = double.Parse(node.Attributes["Total"]?.InnerText);
                 elem.fecha = node.Attributes["Fecha"]?.InnerText;
-                int x = 0;
+                //sacar emisor
+                while (doc.ChildNodes[node_num].ChildNodes[x].Name != "cfdi:Emisor")
+                {
+                  
+                    node = doc.ChildNodes[node_num].ChildNodes[x];
+                    x += 1;
+                }
+                node = doc.ChildNodes[node_num].ChildNodes[x];
+                elem.emisor = node.Attributes["Nombre"]?.InnerText;
+                //sacar concepto
+                x = 0;
                 while (doc.ChildNodes[node_num].ChildNodes[x].Name != "cfdi:Conceptos")
                 {
                     x += 1;
@@ -67,9 +80,33 @@ namespace minsat.Countries
                 this.total += elem.Total;
                 this.facturas.List_Facturas.Add(elem);
             }
-            AnsiConsole.Write(new Markup($"Found [underline green] {this.number_of_reciepts} [/] recipts in the directory"));
+            AnsiConsole.Write(new Markup($"Found [underline green] {this.number_of_reciepts} [/] recipts in the directory\n"));
         }
 
+        public void show()
+        {
+            facturas.toTable();
+
+            AnsiConsole.Write(new Markup($"[underline green] Subtotal: [/] {this.subtotal}    [underline green] Total: [/] {this.total}\n"));
+        }
+
+        public void ExportTo(string type,string path)
+        {
+            switch(type) {
+                case"csv":
+                    facturas.CreateCSV(path);
+                    break;
+                case "json":
+                    AnsiConsole.Write("Unfortunately this functionality is a WIP");
+                    break;
+                case "excel":
+                    AnsiConsole.Write("Unfortunately this functionality is a WIP");
+                    break;
+                case "xml":
+                    AnsiConsole.Write("Unfortunately this functionality is a WIP");
+                    break;
+            }
+        }
 
     }
 }

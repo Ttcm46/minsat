@@ -12,7 +12,7 @@ But *Minsat* offers the following:
 The use of Minsat is quite simple as its made as a console application for all platforms.
 To call *Minsat* and its functionalities:
 ```bash
-minsat [options]
+minsat [options] ...
 ```
 ### Summary of reciepts
 
@@ -25,9 +25,17 @@ Or you can specify the path of the directory.
 ```bash
 minsat summarize [options]
 ```
+this option currently can export to:
+- csv
+
+to export use
+```
+minsat summarize -e [(optional)File type(currently only csv)] [(optional) path]
+```
+it will export by default to the current directory in a csv format
 
 ## Future plans
 In the future I/we(hopefully) plan to add the following:
-- ability to export the summaries to JSON, excel, xml
+- ability to export the summaries to JSON, excel, xml, ...
 - more detailed summaries
 - Full year summaries
